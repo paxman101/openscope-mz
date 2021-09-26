@@ -1,3 +1,7 @@
+This is a fork for the OpenScope MZ firmware that implements a workaround for getting the board to run with a missing IC13 or wifi module. 
+Inspired by a board I received in such a condition. 
+The workaround is a very hacky solution wherein some checks that stalled execution before are removed. 
+Effect on non-wifi based functionality unknown.
 # OpenScope MZ
 
 Firmware for the OpenScope MZ - an open source, multi-function, electronic instrumentation device that can be controlled using a computer or mobile device.
