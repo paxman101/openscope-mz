@@ -37,7 +37,10 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char** argv) 
     Serial.println("Written by: Keith Vogel, Digilent Inc.");
     Serial.println("Copyright 2016 Digilent Inc.");
     Serial.println();
-    
+    Serial.println("Hacky workaround version for a board without IC13 which is the wifi module.\n"
+                   "All wifi based functionality will not work; impact on non-wifi based functionality unknown.\n"
+                   "Hack by github.com/paxman101.\n");
+
     while (1) {
         switch (MState) {
 
