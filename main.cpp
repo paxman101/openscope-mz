@@ -43,10 +43,8 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char** argv) 
 
             // inits the MCU
             case MSysInit:
-                if (CFGSysInit() == Idle) {
-                    tStart = SYSGetMilliSecond();
-                    MState = MSysVoltages;
-                }
+                tStart = SYSGetMilliSecond();
+                MState = MSysVoltages;
                 break;
 
             // read the power supply and reference voltages
@@ -110,18 +108,9 @@ int main(__attribute__((unused)) int argc, __attribute__((unused)) char** argv) 
                 break;
 
             case MLookUpWiFi:
-                if ((retState = WiFiLookupConnInfo(dWiFiFile, pjcmd.iWiFi.wifiWConn)) == Idle) {
-                    Serial.print("Found parameter for AP: ");
-                    Serial.println(pjcmd.iWiFi.wifiWConn.ssid);
-
-                    MState = MConnectWiFi;
-                }
-                else if(IsStateAnError(retState))
-                {
-                    Serial.print("Unable to connect to WiFi AP. Error 0x");
-                    Serial.println(retState, 16);
-                    MState = MLoop;
-                }
+                Serial.print("Unable to connect to WiFi AP. Error 0x");
+                Serial.println(retState, 16);
+                MState = MLoop;
                 break;
 
             case MConnectWiFi:
